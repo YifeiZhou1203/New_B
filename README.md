@@ -66,7 +66,7 @@ Figure-0-1:
 
 **Genome Assembly**
 
-Assembly was performed using Flye. The selection on parameter -hq or -raw was confirmed by the QC checking, which showed that the Q is greater than 15; the --nano-hq parameter, along with 32 thread CPU cores, were selected to apply a lower error model during assembly (Kolmogorov et al., 2019).
+Assembly was performed using Flye. The selection on parameter -hq or -raw was confirmed by the QC checking, which showed that the Q is greater than 15; the --nano-hq parameter, along with 32 thread CPU cores, were selected to apply a lower error model during assembly [6].
 
 flye --nano-hq SRR32410565.fastq.gz \
 --genome-size 5m \
@@ -102,7 +102,7 @@ To further evaluate structural accuracy, the assembly was compared against a ref
 
 **Read Alignment**
 
-Raw sequencing reads were aligned to the reference genome using minimap2 (suitable for long-read alignment). The Oxford Nanopore preset (map-ont) was used to account for platform-specific error profiles (Li, 2018).
+Raw sequencing reads were aligned to the reference genome using minimap2 (suitable for long-read alignment). The Oxford Nanopore preset (map-ont) was used to account for platform-specific error profiles [7].
 
 minimap2 -ax map-ont -t 32 salmonella_ref.fna SRR32410565.fastq.gz 
 samtools sort -o reads.sorted.bam
@@ -134,7 +134,7 @@ Figure-0-3: add_reference
 
 **Variant Calling**
 
-Variants were identified using Clair3 (Zheng et al., 2022). Clair3 integrates pileup and full-alignment models to improve detection accuracy, including the indels and homopolymer regions.
+Variants were identified using Clair3 [8]. Clair3 integrates pileup and full-alignment models to improve detection accuracy, including the indels and homopolymer regions.
 The analysis was executed within a Docker container to ensure reproducibility and avoid dependency conflicts:
 
 Figure-3: Clair3_Verision
@@ -212,19 +212,19 @@ Variants were validated using the Integrative Genomics Viewer (IGV). The referen
 
 ## **Discussion**
 
-The assembly and analysis revealed genomic differences between the sequenced raw isolate and the reference Salmonella enterica genome. A total of 10,547 variants were identified, representing approximately 0.2% divergence across the ~5 Mb bacterial genome. This degree of variation is consistent with expected diversity and might reflect the evolutionary dynamics in bacterial populations.
+The assembly and analysis revealed possible genomic differences between the raw isolate and the reference Salmonella enterica genome. A total of 10,547 variants were identified, representing approximately 0.2% divergence across about 5 Mb bacterial genome. This degree of variation is consistent with expected diversity and might reflect the evolutionary dynamics in bacterial populations.
 
 Visualization IGV showed moderately uniform coverage across most genomic regions, with an average sequencing depth of approximately 154×, supporting the reliability of the dataset. Several regions exhibited dense mismatch signals and gaps, while more conserved regions displayed smooth alignments with minimal discrepancies.
 
 Horizontal gene transfer plays a major role in bacterial evolution and can introduce new genetic material through plasmids, transposons, and bacteriophages. Additionally, environmental selection favours mutation accumulation that enables adaptation to diverse ecological niches. Therefore, the detected variants likely represent natural biological variation rather than sequencing or analytical error.
 
-The use of long-read sequencing significantly improved assembly quality by spanning repetitive genomic regions that often fragment short-read assemblies (Kolmogorov et al., 2019); however, residual sequencing errors remain possible. As stated in the methods, the application of Clair3 improved indel detection by applying network models trained specifically on Nanopore data and reduced false-positive variant calls. 
+The use of long-read sequencing significantly improved assembly quality by spanning repetitive genomic regions that often fragment short-read assemblies [6]; however, residual sequencing errors remain possible. As stated in the methods, the application of Clair3 improved indel detection by applying network models trained specifically on Nanopore data and reduced false-positive variant calls. 
 
 Structural differences between the assembled genome and the reference may also arise from the presence or absence of plasmids, genome rearrangements, or lineage-specific genes. Such variation is expected when comparing distinct isolates rather than technical replicates of the same strain.
 
 Importantly, visualization in IGV confirmed strong read support at representative variant sites, providing additional confidence in the accuracy of the variant-calling pipeline. The agreement between alignment data and variant predictions suggests that the workflow—from assembly through variant detection—was executed successfully.
 
-Overall, the results demonstrate that long-read sequencing combined with modern bioinformatics tools enables reliable reconstruction and comparison of bacterial genomes. The detected genomic divergence highlights the genetic heterogeneity within Salmonella enterica and underscores the importance of reference-based analyses for identifying strain-level differences.
+Overall, the results demonstrate that long-read sequencing combined with modern bioinformatics tools enables reliable assembly and comparison of bacterial genomes. The detected genomic divergence highlights the genetic heterogeneity within Salmonella enterica and the importance of reference-based analyses for identifying SNP differences.
 
 
 
