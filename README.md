@@ -93,12 +93,18 @@ Raw sequencing reads were aligned to the reference genome using minimap2 (suitab
 
 minimap2 -ax map-ont -t 32 salmonella_ref.fna SRR32410565.fastq.gz 
 samtools sort -o reads.sorted.bam
+<p align="center">
+  <img src="image/Minimap2.png" width="650">
+</p>
 
 The sorted BAM file was indexed for efficient querying:
 samtools index reads.sorted.bam
 
 Besides, alignment statistics were evaluated to test mapping and species concordance:
 samtools flagstat reads.sorted.bam
+<p align="center">
+  <img src="image/Minimap2_access.png" width="650">
+</p>
 
 High mapping rates indicated strong agreement between the sequenced isolate and the reference genome.
 
@@ -107,6 +113,10 @@ High mapping rates indicated strong agreement between the sequenced isolate and 
 
 Variants were identified using Clair3 (Zheng et al., 2022). Clair3 integrates pileup and full-alignment models to improve detection accuracy, including the indels and homopolymer regions.
 The analysis was executed within a Docker container to ensure reproducibility and avoid dependency conflicts:
+
+<p align="center">
+  <img src="image/Clair3.png" width="650">
+</p>
 
 docker run --rm --platform linux/amd64 \
 -v "$(pwd)":/work \
@@ -123,8 +133,15 @@ hkubal/clair3 \
 The final variant file (merge_output.vcf.gz) was indexed and used for visualization.
 Variant counts were summarized using bcftools:
 bcftools view -H clair3_out/merge_output.vcf.gz | wc -l
+<p align="center">
+  <img src="image/Variant_Results.png" width="650">
+</p>
 
 A total of 10,547 variants were detected.
+<p align="center">
+  <img src="image/bcftool.png" width="650">
+</p>
+
 
 
 **Visualization**
