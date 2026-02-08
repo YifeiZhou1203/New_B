@@ -103,7 +103,7 @@ samtools index reads.sorted.bam
 Besides, alignment statistics were evaluated to test mapping and species concordance:
 samtools flagstat reads.sorted.bam
 <p align="center">
-  <img src="image/Minimap2_access.png" width="650">
+  <img src="image/Minimap2_sort_stats.png" width="650">
 </p>
 
 High mapping rates indicated strong agreement between the sequenced isolate and the reference genome.
