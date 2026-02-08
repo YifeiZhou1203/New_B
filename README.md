@@ -54,9 +54,14 @@ Raw file quality was checked by inspecting the compressed FASTQ file. Summary wa
 head SRR32410565.fastq.gz
 
 seqkit stats SRR32410565.fastq.gz
+
+
+Figure-0-1: 
+<p align="center">
+  <img src="image/Nanoplot_reports.png" width="650">
+</p>
+
 <br><br>
-
-
 
 
 **Genome Assembly**
@@ -78,6 +83,13 @@ A genome size of approximately 5 Mb was expected based on bacterial genome chara
 Assembly quality was assessed using QUAST, including contig number, N50, genome length, and GC content.
 
 quast.py flye_output/assembly.fasta -o quast_results
+
+
+Figure-0-2:
+<p align="center">
+  <img src="image/Quast_report.png" width="650">
+</p>
+
 <br><br>
 
 
@@ -112,6 +124,12 @@ Figure-2: minimap2_results
 </p>
 
 High mapping rates indicated strong agreement between the sequenced isolate and the reference genome.
+
+
+Figure-0-3: add_reference 
+<p align="center">
+  <img src="image/Quast_report_ref.png" width="650">
+</p>
 <br><br>
 
 **Variant Calling**
