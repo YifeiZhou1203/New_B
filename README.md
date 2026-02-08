@@ -54,13 +54,14 @@ Raw file quality was checked by inspecting the compressed FASTQ file. Summary wa
 head SRR32410565.fastq.gz
 
 seqkit stats SRR32410565.fastq.gz
+<br><br>
 
 
 
 
 **Genome Assembly**
 
-Assembly was performed using Flye. Since the dataset was generated using high-accuracy R10 chemistry and confirmed by the QC checking that Q is greater than 15, the --nano-hq parameter, along with 32 thread CPU cores, were selected to apply a lower error model during assembly (Kolmogorov et al., 2019).
+Assembly was performed using Flye. The selection on parameter -hq or -raw was confirmed by the QC checking, which showed that the Q is greater than 15; the --nano-hq parameter, along with 32 thread CPU cores, were selected to apply a lower error model during assembly (Kolmogorov et al., 2019).
 
 flye --nano-hq SRR32410565.fastq.gz \
 --genome-size 5m \
@@ -68,24 +69,24 @@ flye --nano-hq SRR32410565.fastq.gz \
 --out-dir flye_output
 
 A genome size of approximately 5 Mb was expected based on bacterial genome characteristics.
-
+<br><br>
 
 
 
 **Assembly Quality Evaluation**
 
 Assembly quality was assessed using QUAST, including contig number, N50, genome length, and GC content.
-quast.py flye_output/assembly.fasta -o quast_results
 
-To further evaluate structural accuracy, the assembly was compared against a reference genome downloaded from NCBI.
+quast.py flye_output/assembly.fasta -o quast_results
+<br><br>
 
 
 
 
 **Reference Genome Retrieval**
 
-A complete reference genome for Salmonella enterica was downloaded and named reference.fastq.zip from the NCBI datasets. 
-
+To further evaluate structural accuracy, the assembly was compared against a reference genome downloaded from NCBI. A complete reference genome for Salmonella enterica was downloaded and named reference.fastq.zip from the NCBI datasets. 
+<br><br>
 
 **Read Alignment**
 
@@ -111,7 +112,7 @@ Figure-2: minimap2_results
 </p>
 
 High mapping rates indicated strong agreement between the sequenced isolate and the reference genome.
-
+<br><br>
 
 **Variant Calling**
 
@@ -150,15 +151,44 @@ Figure-5:  Variant_results
 <p align="center">
   <img src="image/bcftool.png" width="650">
 </p>
-
+<br><br>
 
 
 **IGV_Visualization**
 
+Figure-6: IGV_200kb_coverage
+<p align="center">
+  <img src="image/igv_1.png" width="650">
+</p>
+Alignment visualization at 200kb shows a region with dense mismatch signals but consistently high coverage
+<br><br>
+
+
+Figure-7: IGV_SNP_zoomin
+<p align="center">
+  <img src="image/igv_2.png" width="650">
+</p>
+This region zoomed in on a smooth read alignment with stable coverage and fewer detected variants
+<br><br>
+
+Figure-8: IGV_border_coverage
+<p align="center">
+  <img src="image/igv_3.png" width="650">
+</p>
+Coverage remains uniform, but a distinct vertical gap is present; it might be a structural variant, such as a deletion or insertions
+<br><br>
 
 
 
-Variants were visually validated using the Integrative Genomics Viewer (IGV). The reference genome, aligned reads, and compressed VCF file were loaded simultaneously to confirm variant positions and reads. High read depth and consistent base mismatches across multiple reads showed true biological variation, rather than sequencing artifacts.
+Figure-9: IGV_gap_zoomin
+<p align="center">
+  <img src="image/igv_4.png" width="650">
+</p>
+Many mismatches concentrated in one region; might be the divergence evidence of mobile genes, RNA operons, transposons  
+<br><br>
+
+
+Variants were validated using the Integrative Genomics Viewer (IGV). The reference genome, aligned reads, and compressed VCF file were loaded simultaneously to confirm variant positions and reads. High read depth and consistent base mismatches across multiple reads showed true biological variation, rather than sequencing artifacts.
 
 
 
@@ -166,7 +196,9 @@ Variants were visually validated using the Integrative Genomics Viewer (IGV). Th
 
 The assembly and analysis revealed genomic differences between the sequenced raw isolate and the reference Salmonella enterica genome. A total of 10,547 variants were identified, representing approximately 0.2% divergence across the ~5 Mb bacterial genome. This degree of variation is consistent with expected diversity and might reflect the evolutionary dynamics in bacterial populations.
 
-Horizontal gene transfer plays a major role in bacterial evolution and can introduce new genetic material through plasmids, transposons, and bacteriophages. Additionally, environmental selection favors the mutation accumulation that enables adaptation to diverse ecological niches. Therefore, the detected variants likely represent natural biological variation rather than sequencing or analytical error.
+Visualization IGV showed moderately uniform coverage across most genomic regions, with an average sequencing depth of approximately 154×, supporting the reliability of the dataset. Several regions exhibited dense mismatch signals and gaps, while more conserved regions displayed smooth alignments with minimal discrepancies.
+
+Horizontal gene transfer plays a major role in bacterial evolution and can introduce new genetic material through plasmids, transposons, and bacteriophages. Additionally, environmental selection favours mutation accumulation that enables adaptation to diverse ecological niches. Therefore, the detected variants likely represent natural biological variation rather than sequencing or analytical error.
 
 The use of long-read sequencing significantly improved assembly quality by spanning repetitive genomic regions that often fragment short-read assemblies (Kolmogorov et al., 2019); however, residual sequencing errors remain possible. As stated in the methods, the application of Clair3 improved indel detection by applying network models trained specifically on Nanopore data and reduced false-positive variant calls. 
 
@@ -175,17 +207,6 @@ Structural differences between the assembled genome and the reference may also a
 Importantly, visualization in IGV confirmed strong read support at representative variant sites, providing additional confidence in the accuracy of the variant-calling pipeline. The agreement between alignment data and variant predictions suggests that the workflow—from assembly through variant detection—was executed successfully.
 
 Overall, the results demonstrate that long-read sequencing combined with modern bioinformatics tools enables reliable reconstruction and comparison of bacterial genomes. The detected genomic divergence highlights the genetic heterogeneity within Salmonella enterica and underscores the importance of reference-based analyses for identifying strain-level differences.
-
-
-
-
-
-
-
-
-
-
-
 
 
 
