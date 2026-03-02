@@ -60,18 +60,15 @@ Over-Representation Analysis (ORA) and Gene Set Enrichment Analysis (GSEA), in w
 ## **Results**
 **Global Expression Patterns**
 
-[Insert Figure 1 here]
-
+![Model](image/PCA.png)
 Figure 1. Principal Component Analysis (PCA) of variance-stabilized gene expression values.
 PCA plot showing clustering of early, thin, and mature velum samples. PC1 explains 68% of the variance and PC2 explains 24%. Biological replicates cluster tightly within stages, indicating strong reproducibility and stage-specific transcriptomic profiles.
 
-[Insert Figure 2 here]
+Principal Component Analysis (PCA) revealed strong stage-specific clustering of samples (Figure 1). PC1 accounted for 68% of total variance, while PC2 explained 24%, together explaining 92% of the overall transcriptional variability. Early, thin, and mature samples formed clearly separated clusters, indicating substantial transcriptional reprogramming across velum development. Replicates clustered tightly within each stage, demonstrating high biological reproducibility and minimal technical variation.
 
+![Model](image/Pheat.png)
 Figure 2. Sample distance heatmap of variance-stabilized expression values.
 Heatmap representing Euclidean distances between samples. Samples cluster primarily by developmental stage, confirming distinct transcriptional identities and minimal intra-group variability.
-
-
-Principal Component Analysis (PCA) revealed strong stage-specific clustering of samples (Figure 1). PC1 accounted for 68% of total variance, while PC2 explained 24%, together explaining 92% of the overall transcriptional variability. Early, thin, and mature samples formed clearly separated clusters, indicating substantial transcriptional reprogramming across velum development. Replicates clustered tightly within each stage, demonstrating high biological reproducibility and minimal technical variation.
 
 The sample-to-sample distance heatmap further confirmed this separation (Figure 2). Samples from the same developmental stage showed high similarity, while inter-stage comparisons exhibited larger distances. Notably, mature samples displayed the greatest divergence from early-stage samples, suggesting progressive transcriptional remodeling during biofilm maturation.
 
@@ -80,44 +77,33 @@ These global analyses demonstrate that velum development is accompanied by coord
 
 **Differential Gene Expression Across Developmental Stages**
 
-[Insert Figure 3 here]
-
+![Model](image/V_thin_early.png)
 Figure 3. Volcano plot of differential expression: Thin vs Early.
 Each point represents a gene. Red points indicate genes with |log2FoldChange| > 1 and adjusted p-value < 0.05. Dashed lines represent the significance thresholds. The thin stage exhibits substantial bidirectional gene regulation relative to early stage.
 
-Differential expression analysis using DESeq2 identified extensive transcriptional changes between developmental stages.
 
-Thin vs Early
+**Thin vs Early**
 
-The Thin vs Early comparison revealed numerous significantly differentially expressed genes (FDR < 0.05), with many exceeding a two-fold change threshold (|log2FC| > 1) (Figure 3). Both upregulated and downregulated genes were observed, indicating that the thin stage represents an active transitional phase rather than a unidirectional shift in gene expression.
-
-This transitional profile suggests metabolic rewiring as yeast cells begin adapting from fermentative growth toward a more oxidative, biofilm-associated lifestyle.
+The Thin vs Early comparison revealed numerous significantly differentially expressed genes (FDR < 0.05), with many exceeding a two-fold change threshold (|log2FC| > 1) (Figure 3). Both upregulated and downregulated genes were observed, indicating that the thin stage represents an active transitional phase rather than a unidirectional shift in gene expression. This transitional profile suggests metabolic rewiring as yeast cells begin adapting from fermentative growth toward a more oxidative, biofilm-associated lifestyle.
 
 
-[Insert Figure 4 here]
-
+![Model](image/V_Mature_Early.png)
 Figure 4. Volcano plot of differential expression: Mature vs Early.
 Significant genes (red) meet the criteria of |log2FoldChange| > 1 and adjusted p-value < 0.05. Mature velum shows widespread transcriptional reprogramming compared to early stage, reflecting advanced biofilm maturation.
 
 
-Mature vs Early
+**Mature vs Early**
 
-The Mature vs Early comparison exhibited even broader transcriptional divergence (Figure 4). A large number of genes showed strong log2 fold changes and highly significant adjusted p-values, indicating substantial remodeling between early and mature biofilm stages.
-
-The magnitude and density of significant genes in this contrast suggest that mature velum cells undergo profound metabolic and structural reprogramming relative to early-stage cells.
+The Mature vs Early comparison exhibited even broader transcriptional divergence (Figure 4). A large number of genes showed strong log2 fold changes and highly significant adjusted p-values, indicating substantial remodeling between early and mature biofilm stages. The magnitude and density of significant genes in this contrast suggest that mature velum cells undergo profound metabolic and structural reprogramming relative to early-stage cells.
 
 
 
 
 **Functional Enrichment Analysis**
 
-[Insert Figure 5 here]
-
+![Model](image/ORA.png)
 Figure 5. GO Biological Process enrichment (ORA) for Mature vs Early.
 Dotplot showing significantly enriched GO terms (Biological Process ontology). Dot size corresponds to gene ratio, and color indicates adjusted p-value. Enriched terms highlight metabolic remodeling and energy-associated pathways during velum maturation.
-
-
-Over-Representation Analysis (ORA)
 
 GO Biological Process enrichment identified significant overrepresentation of pathways including:
 
@@ -153,12 +139,10 @@ The strong enrichment of ATP and phosphate metabolism suggests heightened energy
 
 
 
-[Insert Figure 6 here]
-
+![Model](image/GSEA.png)
 Figure 6. Gene Set Enrichment Analysis (GSEA) results for Mature vs Early.
 Dotplot and enrichment curve showing significantly enriched Biological Process pathways. Enrichment of mitochondrial translation and nucleotide metabolism supports enhanced oxidative metabolism in mature velum.
 
-Gene Set Enrichment Analysis (GSEA)
 
 GSEA identified coordinated enrichment of entire biological pathways across the ranked gene list, including:
 
