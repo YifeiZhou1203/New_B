@@ -60,19 +60,150 @@ Over-Representation Analysis (ORA) and Gene Set Enrichment Analysis (GSEA), in w
 ## **Results**
 **Global Expression Patterns**
 
-The PCA plot shows strong separation between early, thin, and mature stages.
+[Insert Figure 1 here]
 
-PC1 explains 68% of the variance
+Figure 1. Principal Component Analysis (PCA) of variance-stabilized gene expression values.
+PCA plot showing clustering of early, thin, and mature velum samples. PC1 explains 68% of the variance and PC2 explains 24%. Biological replicates cluster tightly within stages, indicating strong reproducibility and stage-specific transcriptomic profiles.
 
-PC2 explains 24% of the variance
+[Insert Figure 2 here]
 
-Samples cluster tightly within groups, indicating a strong biological signal
+Figure 2. Sample distance heatmap of variance-stabilized expression values.
+Heatmap representing Euclidean distances between samples. Samples cluster primarily by developmental stage, confirming distinct transcriptional identities and minimal intra-group variability.
 
-High reproducibility across replicates
 
-Progressive transcriptional shift during velum maturation
+Principal Component Analysis (PCA) revealed strong stage-specific clustering of samples (Figure 1). PC1 accounted for 68% of total variance, while PC2 explained 24%, together explaining 92% of the overall transcriptional variability. Early, thin, and mature samples formed clearly separated clusters, indicating substantial transcriptional reprogramming across velum development. Replicates clustered tightly within each stage, demonstrating high biological reproducibility and minimal technical variation.
 
-The sample distance heatmap further confirms stage-specific clustering.
+The sample-to-sample distance heatmap further confirmed this separation (Figure 2). Samples from the same developmental stage showed high similarity, while inter-stage comparisons exhibited larger distances. Notably, mature samples displayed the greatest divergence from early-stage samples, suggesting progressive transcriptional remodeling during biofilm maturation.
+
+These global analyses demonstrate that velum development is accompanied by coordinated, large-scale shifts in gene expression.
+
+
+**Differential Gene Expression Across Developmental Stages**
+
+[Insert Figure 3 here]
+
+Figure 3. Volcano plot of differential expression: Thin vs Early.
+Each point represents a gene. Red points indicate genes with |log2FoldChange| > 1 and adjusted p-value < 0.05. Dashed lines represent the significance thresholds. The thin stage exhibits substantial bidirectional gene regulation relative to early stage.
+
+Differential expression analysis using DESeq2 identified extensive transcriptional changes between developmental stages.
+
+Thin vs Early
+
+The Thin vs Early comparison revealed numerous significantly differentially expressed genes (FDR < 0.05), with many exceeding a two-fold change threshold (|log2FC| > 1) (Figure 3). Both upregulated and downregulated genes were observed, indicating that the thin stage represents an active transitional phase rather than a unidirectional shift in gene expression.
+
+This transitional profile suggests metabolic rewiring as yeast cells begin adapting from fermentative growth toward a more oxidative, biofilm-associated lifestyle.
+
+
+[Insert Figure 4 here]
+
+Figure 4. Volcano plot of differential expression: Mature vs Early.
+Significant genes (red) meet the criteria of |log2FoldChange| > 1 and adjusted p-value < 0.05. Mature velum shows widespread transcriptional reprogramming compared to early stage, reflecting advanced biofilm maturation.
+
+
+Mature vs Early
+
+The Mature vs Early comparison exhibited even broader transcriptional divergence (Figure 4). A large number of genes showed strong log2 fold changes and highly significant adjusted p-values, indicating substantial remodeling between early and mature biofilm stages.
+
+The magnitude and density of significant genes in this contrast suggest that mature velum cells undergo profound metabolic and structural reprogramming relative to early-stage cells.
+
+
+
+
+**Functional Enrichment Analysis**
+
+[Insert Figure 5 here]
+
+Figure 5. GO Biological Process enrichment (ORA) for Mature vs Early.
+Dotplot showing significantly enriched GO terms (Biological Process ontology). Dot size corresponds to gene ratio, and color indicates adjusted p-value. Enriched terms highlight metabolic remodeling and energy-associated pathways during velum maturation.
+
+
+Over-Representation Analysis (ORA)
+
+GO Biological Process enrichment identified significant overrepresentation of pathways including:
+
+Phosphorus metabolic process
+
+Phosphate-containing compound metabolism
+
+Carbohydrate metabolic process
+
+Organic and oxoacid metabolism
+
+Lipid biosynthetic process
+
+Transmembrane transport
+
+ATP metabolic process
+
+Protein catabolic process
+
+Ubiquitin-dependent protein catabolism
+
+These enriched processes indicate:
+
+Increased metabolic flux
+
+Elevated energy demand
+
+Active macromolecular turnover
+
+Proteome remodeling
+
+The strong enrichment of ATP and phosphate metabolism suggests heightened energy production and utilization in mature velum. Meanwhile, enrichment of ubiquitin-dependent protein catabolism indicates active restructuring of the proteome during adaptation to oxidative stress.
+
+
+
+[Insert Figure 6 here]
+
+Figure 6. Gene Set Enrichment Analysis (GSEA) results for Mature vs Early.
+Dotplot and enrichment curve showing significantly enriched Biological Process pathways. Enrichment of mitochondrial translation and nucleotide metabolism supports enhanced oxidative metabolism in mature velum.
+
+Gene Set Enrichment Analysis (GSEA)
+
+GSEA identified coordinated enrichment of entire biological pathways across the ranked gene list, including:
+
+Glycolytic process
+
+Purine nucleotide metabolic process
+
+ADP metabolic process
+
+Organophosphate catabolic process
+
+Nucleotide catabolic process
+
+Mitochondrial translation
+
+The enrichment of mitochondrial translation strongly suggests increased synthesis of mitochondrial proteins and enhanced respiratory activity. This finding supports a metabolic transition from fermentation toward oxidative phosphorylation in mature velum.
+
+Enrichment of nucleotide and ADP metabolic processes further indicates elevated ATP turnover and energetic cycling.
+
+Together, ORA and GSEA analyses converge on a consistent biological narrative: velum maturation is associated with systemic metabolic reprogramming and increased respiratory metabolism.
+
+
+## **Discussion**
+
+This study demonstrates that yeast velum maturation is accompanied by extensive transcriptional remodeling and metabolic reorganization.
+
+The strong stage separation observed in PCA confirms distinct transcriptomic identities for early, thin, and mature stages. Differential expression analysis revealed progressively larger transcriptional divergence as the biofilm matured.
+
+Functional enrichment results indicate that mature velum cells:
+
+Enhance mitochondrial function
+
+Increase ATP production and turnover
+
+Activate nucleotide metabolic pathways
+
+Remodel the proteome through ubiquitin-mediated degradation
+
+Adjust transport systems to optimize metabolite exchange
+
+The enrichment of mitochondrial translation provides compelling evidence for increased respiratory activity. Flor yeasts are known to rely on oxidative metabolism during biological wine aging, where oxygen exposure at the liquid surface promotes respiration over fermentation. Our results align with this established biological framework.
+
+Upregulation of protein catabolic and macromolecule turnover pathways likely reflects cellular adaptation to oxidative stress and nutrient limitation. Such restructuring may enable long-term survival under the harsh environmental conditions encountered during wine aging.
+
+Collectively, these findings support a model in which velum maturation represents a coordinated shift toward oxidative metabolism, enhanced energy production, and structural adaptation necessary for biofilm persistence.
 
 
 
