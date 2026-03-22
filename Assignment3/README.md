@@ -48,16 +48,67 @@ Alpha diversity was calculated using the vegan R package (Oksanen et al., 2022).
 
 
 ## **Result**
+**Taxonomic Composition**
 
 Figure 1. 
-<img src="image/top10_genus_barplot.png" width="500">
+![Model](../image/top10_genus_barplot.png)
 
 
-Relative abundance of the top 10 bacterial genera across omnivore and vegan samples. Each bar represents an individual sample, and colors indicate different genera. Figure-1 revealed variation across samples, with some dominant taxa contributing to the microbial community. Alistipes showed relatively high abundance across all samples, with values from 0.035 in SRR8146936 to 0.249 in SRR8146935.
+Figure-1 is the relative abundance of the top 10 bacterial genera across omnivore and vegan samples. Each bar represents an individual sample, and colors indicate different genera. The result revealed variation across samples, with some dominant taxa contributing to the microbial community. Alistipes showed relatively high abundance across all samples, with values from 0.035 in SRR8146936 to 0.249 in SRR8146935.
 
 Differences between dietary groups were observed. Bacteroides showed higher abundance in some omnivore samples (0.209 in SRR8146938) compared to vegan samples (0.0487 in SRR8146940). Similarly, Phocaeicola showed higher mean abundance in omnivore samples (0.0633) compared to vegan samples (0.0254). In contrast, some genera such as Parabacteroides appeared consistent across groups, suggesting both shared core microbiota and diet-associated variation.
 
 Overall, omnivore samples showed stronger dominance by specific taxa, while vegan samples displayed more evenly distributed genus-level abundances.
+
+
+
+**Alpha Diversity**
+
+Figure-2
+![Model](../image/shannon_boxplot.png)
+
+
+Figure 2. Shannon diversity index comparison between omnivore and vegan groups. Points represent individual samples, and boxplots summarize group distributions.
+
+Alpha diversity analysis demonstrated that vegan samples exhibited higher Shannon diversity compared to omnivore samples. Specifically, Shannon diversity values for vegan samples were 2.88, 2.91, and approximately 2.90, whereas omnivore samples showed greater variability, with values of 1.45, 2.28, and 2.80.
+
+The lowest diversity was observed in omnivore sample SRR8146936 (Shannon = 1.45), indicating a less diverse and more uneven microbial community. In contrast, vegan samples consistently showed high diversity (all > 2.8), suggesting a more complex and evenly distributed microbiome.
+
+Similarly, Simpson diversity values supported this trend, with vegan samples exhibiting high values (0.90–0.92), compared to more variable values in omnivores (0.56–0.87). Observed richness also varied widely, with one omnivore sample showing particularly high richness (838 genera), indicating substantial intra-group variability.
+
+Overall, these results suggest that vegan diets are associated with more consistent and higher microbial diversity, although variability within omnivore samples highlights individual differences.
+
+
+
+**Beta Diversity**
+
+Figure-3
+![Model](../image/pcoa_braycurtis.png)
+
+
+Figure 3. Principal Coordinates Analysis (PCoA) based on Bray–Curtis dissimilarity showing differences in microbial community composition between samples.
+
+Beta diversity analysis using Bray–Curtis dissimilarity revealed partial separation between omnivore and vegan samples. Vegan samples showed a tendency to cluster more closely together in ordination space, indicating greater similarity in microbial composition within this group.
+
+In contrast, omnivore samples were more widely dispersed, suggesting higher variability in microbial communities among individuals consuming omnivorous diets. This pattern is consistent with the alpha diversity results, which showed greater variability among omnivore samples.
+
+Despite this trend, overlap between the two dietary groups was observed, indicating that diet is not the sole determinant of microbiome composition. PERMANOVA analysis did not detect statistically significant differences between groups, likely due to the small sample size (n = 3 per group) and within-group variability.
+
+
+
+**Differential Abundance**
+
+Figure-4
+
+
+
+Figure 4. Differential abundance analysis of bacterial genera between vegan and omnivore groups. Each point represents a genus, with log2 fold change indicating differences in relative abundance.
+
+Differential abundance analysis did not identify any genera that were statistically significant after multiple testing correction (all FDR ≈ 0.87). This indicates that no taxa showed strong evidence of differential abundance between dietary groups under the current sample size and variability.
+
+However, several genera exhibited notable trends. For example, Phocaeicola showed higher mean abundance in omnivore samples (0.0633) compared to vegan samples (0.0254), corresponding to a negative log2 fold change (-1.32), indicating enrichment in omnivores. Similarly, Prevotella and Barnesiella also showed reduced abundance in vegan samples.
+
+Conversely, some genera showed relatively smaller differences between groups, suggesting a shared microbial core across diets. The absence of statistically significant results is likely due to the limited sample size and variability in relative abundance, which reduces statistical power to detect subtle differences.
 
 
 
