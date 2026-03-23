@@ -24,6 +24,7 @@ Quality control was performed using FastQC (version 0.12.1) for access to sequen
 
 
 **Taxonomic Classification and Abundance Estimation**
+
 Taxonomic classification was performed using Kraken2 (version 2.1.3), which assigns reads by matching sequence k-mers to a reference database. A mini Kraken2 database (~8 GB) was used. 
 
 Paired-end reads from each sample were classified separately using Kraken2. For each sample, both a classification output file and a report file were generated. For example:
@@ -94,6 +95,9 @@ Plus, genera with adjusted p-values (q-values) below 0.05 were considered statis
 
 
 These analyses collectively provided inspections on microbial community structure, including within-sample diversity (alpha diversity), between-sample variation (beta diversity), and taxon-specific differences (differential abundance).
+
+
+
 
 
 
