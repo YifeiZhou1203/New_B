@@ -19,7 +19,7 @@ The objective of this study was to compare gut microbiome composition between om
 
 Six shotgun metagenomic samples were analyzed in this study, consisting of three omnivore samples (SRR8146935, SRR8146936, SRR8146938) and three vegan samples (SRR8146937, SRR8146939, SRR8146940). The raw data were downloaded in SRA format and converted to FASTQ files using the SRA Toolkit (fasterq-dump : 3.4.0).
 
-Quality control was performed using FastQC (version 0.12.1) for access to sequence quality scores, GC content, sequence length distribution, and the presence of adapter contamination. Minor warnings in GC and base content were observed, but the sequencing data were acceptable for downstream analysis, and no additional trimming or filtering was applied.
+Quality control was performed using FastQC (version 0.12.1) for access to sequence quality scores, GC content, sequence length distribution, and the presence of adapter contamination. Minor warnings in GC and base content were observed, but the sequencing data were acceptable for downstream analysis, and no additional trimming or filtering was applied. (Kraken2/Bracken classification is based on k-mers on a reference database)
 
 
 
