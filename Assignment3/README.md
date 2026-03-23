@@ -171,14 +171,14 @@ Figure-5
 
 The Volcano plot showed abundance results from ANCOMBC2 analysis. Each point represents a genus, with log fold change indicating differences between vegan and omnivore groups under p value. Similarly, differential abundance analysis using ANCOMBC2 did not see genera significance (q > 0.05). 
 
-ANCOMBC2 identified trends in genus abundance between omnivore and vegan diets. Genera on the positive side of the plot showed higher abundance in vegan samples, whereas those on the negative side were enriched in omnivore samples. However, most taxa were clustered near the center of the plot with low p value, showing weak statistical prove for differential abundance.
-
+ANCOMBC2 identified trends in genus abundance between omnivore and vegan diets. Genera on the positive side of the plot showed higher abundance in vegan samples, whereas those on the negative side were enriched in omnivore samples. However, most taxa were clustered near the center of the plot with low p value, showing weak statistical prove for differential abundance. 
 
 
 ## **Discussion**
 The study investigated the dietary patterns on gut microbiome composition using shotgun metagenomic data. Overall, the results suggest that diet influences microbial diversity and community structure, although the magnitude of these effects was actually modest. 
 
-To start with, parameter choices may influence the results. The mini Kraken2 database reduced runtime, but also lowered taxonomic sensitivity to some unclassified reads. Kraken2 with default settings kept classification sensitive but may have increased ambiguous assignments when using a reduced database. 
+To start with, parameter and database choices may influence the results. The mini Kraken2 database reduced runtime, but also lowered taxonomic sensitivity to some unclassified reads. Overall, Kraken2 classified approximately 36–44% of reads, with the remainder unclassified. These rates were relatively low but still sufficient for downstream genus-level analysis because dominant microbial taxa were recovered across samples, including major groups of interest such as Bacteroides and Alistipes, supported by high read counts. However, the unclassified reads could reduce taxonomic resolution and may have limited detection of low abundance organisms.
+
 
 In addition, alpha diversity analysis indicated that the vegan samples exhibited higher Shannon diversity compared to omnivore samples. This observation aligns with previous studies demonstrating that the plant diets and dietary fibers had increased microbial diversity (David et al., 2014). Higher diversity is associated with greater ecosystem stability and metabolic flexibility, and therefore vegan diets may support a better gut microbiome. In contrast, the lower and more variable diversity observed in omnivore samples may reflect uneven microbial dominance patterns associated with dietary heterogeneity.
 
