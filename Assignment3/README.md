@@ -36,15 +36,52 @@ Database: corresponding mini Kraken2 database
 
 
 
+
 **Construction of Abundance Table**
 
-Genus abundance data from all six samples were merged into a single abundance table using R. Missing values were replaced with zeros to ensure consistent representation of taxa across samples. The resulting matrix contained samples as rows and genera as columns, with values representing relative abundance.
+Genus abundance data from all six samples were merged into a single abundance table using R. Missing values were replaced with zeros to ensure consistent representation of taxa across samples. The resulting matrix contained samples as rows and genera as columns, and the  values representing relative abundance.
+
 
 
 
 **Alpha Diversity Analysis**
 
 Alpha diversity was calculated using the vegan R package (Oksanen et al., 2022). The following diversity indices were computed: Shannon diversity index, Simpson diversity index and Observed richness. These metrics were calculated based on the genus abundance data and compared between omnivore and vegan groups.
+
+
+
+
+**Beta Diversity Analysis**
+
+Beta diversity was assessed using Bray–Curtis dissimilarity. A Bray–Curtis distance matrix was calculated using the vegdist function in the vegan package (Oksanen et al., 2022).
+
+Principal Coordinates Analysis (PCoA) was performed using classical multidimensional scaling to visualize patterns of similarity and dissimilarity among samples. The proportion of variance explained by each principal coordinate was calculated from the eigenvalues and used to label axes in the ordination plot.
+
+Group differences in microbial community composition were statistically evaluated using PERMANOVA by adonis2 function with 999 permutations.
+
+
+
+**Heatmap Visualization**
+
+To further examine patterns in microbial community structure, a heatmap of the top 20 most abundant genera was generated using the pheatmap package in R (Kolde, 2019). Genera were ranked based on mean relative abundance across all samples, and the top 20 taxa were selected for visualization.
+
+
+
+
+**Differential Abundance Analysis**
+
+Beside Heatmap, differential abundance analysis was performed using ANCOMBC2. Genus count data from Bracken estimated read counts were used as input. phyloseq was constructed to integrate the abundance table with sample metadata. Differential abundance was tested using diet group (omnivore vs vegan) as the main variable.
+
+The ANCOMBC2 model will be using the following parameters:
+
+Fixed effect: diet group
+Multiple testing correction: Holm method
+Structural zero detection: enabled
+Pseudo-count sensitivity analysis: enabled
+
+plus, genera with adjusted p-values (q-values) below 0.05 were considered statistically significant.
+
+
 
 
 ## **Result**
@@ -74,7 +111,7 @@ Alpha diversity analysis demonstrated that vegan samples exhibited higher Shanno
 
 The lowest diversity was observed in omnivore sample SRR8146936 (Shannon = 1.45), indicating a less diverse and more uneven microbial community. In contrast, vegan samples consistently showed high diversity (all > 2.8), suggesting a more complex and evenly distributed microbiome.
 
-Similarly, Simpson diversity values supported this trend, with vegan samples exhibiting high values (0.90–0.92), compared to more variable values in omnivores (0.56–0.87). Observed richness also varied widely, with one omnivore sample showing particularly high richness (838 genera), indicating substantial intra-group variability.
+Simpson diversity also showed that vegan samples had high values (0.90–0.92), compared to more variable values in omnivores (0.56–0.87). Observed richness also varied widely, with one omnivore sample showing particularly high richness (838 genera), indicating intra-group variability.
 
 Overall, these results suggest that vegan diets are associated with more consistent and higher microbial diversity, although variability within omnivore samples highlights individual differences.
 
@@ -83,32 +120,42 @@ Overall, these results suggest that vegan diets are associated with more consist
 **Beta Diversity**
 
 Figure-3
-![Model](../image/pcoa_braycurtis.png)
+![Model](../image/pcoa.png)
 
 
-Figure 3. Principal Coordinates Analysis (PCoA) based on Bray–Curtis dissimilarity showing differences in microbial community composition between samples.
+Figure 3 is the Principal Coordinates Analysis based on Bray–Curtis dissimilarity, showing differences in microbial community composition between omnivore and vegan samples. Each point represents one sample, and distances between points reflect differences. 
 
-Beta diversity analysis using Bray–Curtis dissimilarity revealed partial separation between omnivore and vegan samples. Vegan samples showed a tendency to cluster more closely together in ordination space, indicating greater similarity in microbial composition within this group.
+Beta diversity analysis showed partial separation between omnivore and vegan samples. Vegan samples tended to cluster more closely in ordination space, indicating greater similarity in microbial composition within this group.
 
-In contrast, omnivore samples were more widely dispersed, suggesting higher variability in microbial communities among individuals consuming omnivorous diets. This pattern is consistent with the alpha diversity results, which showed greater variability among omnivore samples.
+In contrast, omnivore samples were more dispersed, showing higher variability in microbial communities among individuals. This pattern is consistent with the alpha diversity results. 
 
-Despite this trend, overlap between the two dietary groups was observed, indicating that diet is not the sole determinant of microbiome composition. PERMANOVA analysis did not detect statistically significant differences between groups, likely due to the small sample size (n = 3 per group) and within-group variability.
+The slight overlap between the two groups was observed, indicating that diet is not the only determinant of microbiome composition. In addiiton, PERMANOVA analysis itself did not detect statistically significant differences between groups, and the limitation could be the small sample size (n = 3 per group) and within-group variability.
 
 
 
 **Differential Abundance**
 
 Figure-4
+![Model](../image/Pheat.png)
+
+
+Figure 4 shows the Differential abundance analysis of bacterial genera between vegan and omnivore groups. Each point represents a genus, with log fold change indicating differences in relative abundance. The analysis did not identify significant difference wiht tesing correction (FDR ≈ 0.87). For this sample size, no taxa showed differential abundance within dietary groups.
+
+On the other hand, Phocaeicola showed higher mean abundance in omnivore samples (0.0633) compared to vegan samples (0.0254), indicating enrichment in omnivores. Prevotella and Barnesiella also showed reduced abundance in vegan samples.
 
 
 
-Figure 4. Differential abundance analysis of bacterial genera between vegan and omnivore groups. Each point represents a genus, with log2 fold change indicating differences in relative abundance.
 
-Differential abundance analysis did not identify any genera that were statistically significant after multiple testing correction (all FDR ≈ 0.87). This indicates that no taxa showed strong evidence of differential abundance between dietary groups under the current sample size and variability.
+**Differential Abundance continue**
 
-However, several genera exhibited notable trends. For example, Phocaeicola showed higher mean abundance in omnivore samples (0.0633) compared to vegan samples (0.0254), corresponding to a negative log2 fold change (-1.32), indicating enrichment in omnivores. Similarly, Prevotella and Barnesiella also showed reduced abundance in vegan samples.
+Figure-5
 
-Conversely, some genera showed relatively smaller differences between groups, suggesting a shared microbial core across diets. The absence of statistically significant results is likely due to the limited sample size and variability in relative abundance, which reduces statistical power to detect subtle differences.
+
+
+
+The Volcano plot showed abundance results from ANCOMBC2 analysis. Each point represents a genus, with log fold change indicating differences between vegan and omnivore groups under p value. Similarly, differential abundance analysis using ANCOMBC2 did not see genera significance (q > 0.05). 
+
+ANCOMBC2 identified trends in genus abundance between omnivore and vegan diets. Genera on the positive side of the plot showed higher abundance in vegan samples, whereas those on the negative side were enriched in omnivore samples. However, most taxa were clustered near the center of the plot with low p value, showing weak statistical prove for differential abundance.
 
 
 
