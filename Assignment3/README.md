@@ -82,6 +82,8 @@ Pseudo-count sensitivity analysis: enabled
 plus, genera with adjusted p-values (q-values) below 0.05 were considered statistically significant.
 
 
+These analyses collectively provided inspections on microbial community structure, including within-sample diversity (alpha diversity), between-sample variation (beta diversity), and taxon-specific differences (differential abundance).
+
 
 
 ## **Result**
@@ -149,13 +151,31 @@ On the other hand, Phocaeicola showed higher mean abundance in omnivore samples 
 **Differential Abundance continue**
 
 Figure-5
-
-
+![Model](../image/ANCOMBC2_volcano.png)
 
 
 The Volcano plot showed abundance results from ANCOMBC2 analysis. Each point represents a genus, with log fold change indicating differences between vegan and omnivore groups under p value. Similarly, differential abundance analysis using ANCOMBC2 did not see genera significance (q > 0.05). 
 
 ANCOMBC2 identified trends in genus abundance between omnivore and vegan diets. Genera on the positive side of the plot showed higher abundance in vegan samples, whereas those on the negative side were enriched in omnivore samples. However, most taxa were clustered near the center of the plot with low p value, showing weak statistical prove for differential abundance.
+
+
+
+## **Discussion**
+The study investigated the dietary patterns on gut microbiome composition using shotgun metagenomic data. Overall, the results suggest that diet influences microbial diversity and community structure, although the magnitude of these effects was actually modest. 
+
+Alpha diversity analysis indicated that vegan samples exhibited higher Shannon diversity compared to omnivore samples. This observation aligns with previous studies demonstrating that the plant diets and dietary fibers had increased microbial diversity (David et al., 2014). Higher diversity is associated with greater ecosystem stability and metabolic flexibility, suggesting that vegan diets may support a better gut microbiome. In contrast, the lower and more variable diversity observed in omnivore samples may reflect uneven microbial dominance patterns associated with dietary heterogeneity.
+
+Beta diversity analysis further supported the diet differences, with vegan samples clustering more closely than omnivore samples. This suggests that individuals consuming plant diets may harbor more similar microbial communities. This might due to shared dietary components such as fiber and complex carbohydrates. However, the overlap observed between dietary groups indicates that diet alone does not fully determine microbiome composition. This is consistent with previous findings that inter-individual variability, host genetics, and environmental factors also play significant roles in shaping the gut microbiome (De Filippis et al., 2019).
+
+At the taxonomic level, several genera exhibited differences in relative abundance between dietary groups. For example, Bacteroides appeared more abundant in some omnivore samples. Bacteroides is related more to the animal-based diets and protein metabolism.  The finding is consistent with prior studies linking Bacteroides to high fat and animal protein (Wu et al., 2011). Conversely, genera(Faecalibacterium) with plant polysaccharide degradation and short chain fatty acid production were present across samples and may contribute to beneficial metabolic functions, including butyrate production. (Louis & Flint, 2017).
+
+Despite these observed trends, differential abundance analysis using ANCOMBC2 did not identify any statistically significant taxa after testing correction. This unexpected result might due be small sample size (n = 3 per group), which reduces statistical power and limits the ability to detect small differences. Further analysis needs larger cohorts and more stable abundance patterns. The volcano plot of ANCOMBC2 showed a wide distribution of log fold changes, indicating that some taxa may differ between dietary groups, although not significantly. This pattern is consistent with previous microbiome studies that the diet microbial shifts are often modest and require large sample sizes to achieve statistical significance (De Filippis et al., 2019). 
+
+Several method designs may also influence the results. The use of a mini Kraken2 database may reduce taxonomic resolution and sensitivity, affecting downstream analyses. Additionally, the use of relative abundance data rather than absolute counts may obscure differences in total microbial load. Besides, the variability during sample processing and sequencing may contribute to the observed heterogeneity.
+
+In conclusion, this study demonstrates that dietary patterns are associated with differences in gut microbiome diversity and composition, with vegan samples showing higher diversity and more consistent community structure. While differential abundance analysis did not identify statistically significant taxa. The observed trends in genera suggest some relevant differences but need further investigation. Future studies with larger sample sizes, improved taxonomic resolution, and integration of functional data will be helpful to understand the relationship between diet and the gut microbiome.
+
+
 
 
 
