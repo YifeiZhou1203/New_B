@@ -99,3 +99,23 @@ Enrichment analysis highlights processes related to translation and ribosome bio
 
 
 
+
+## **Discussion**
+
+This study used single-cell RNA sequencing to examine cell type composition and transcriptional changes in mouse nasal tissues following influenza A virus (IAV) infection. Clustering and marker-based annotation identified a diverse set of cell populations, including epithelial cells, olfactory neurons, and multiple immune cell types such as macrophages, neutrophils, NK cells, and B cells. The clear separation of these populations in the UMAP embedding suggests that the clustering approach successfully captured biologically meaningful variation in the dataset.
+
+When comparing cells across time points, the overall structure of the UMAP remained consistent, indicating that cell identity is the dominant factor driving transcriptional variation. However, the shifts in the distribution of cells suggest that infection may influence the abundance or activation state of specific cell populations. This is consistent with previous studies showing that immune responses to IAV involve dynamic changes in both cell composition and gene expression rather than the emergence of entirely new cell types.
+
+Differential expression analysis focused on macrophages revealed transcriptional differences between early (D02) and later (D14) stages of infection. Functional enrichment analysis of genes upregulated at D14 showed strong enrichment in processes related to translation and ribosome biogenesis. These findings suggest an increase in protein synthesis activity in macrophages at later stages of infection. One  reason is that macrophages undergo a shift toward a more active or functional state, associated with immune regulation, tissue repair, or sustained inflammatory signaling.
+
+Despite these findings, several limitations should be considered. First, differential expression analysis was performed on a subset of cells due to downsampling, which may reduce statistical power and limit the detection of weaker signals. Second, the analysis focused on a single cluster, which restricts the scope of conclusions to macrophages and does not capture changes in other cell types. In addition, functional enrichment analysis provides indirect evidence of biological processes and does not establish causal relationships between gene expression changes and cellular function.
+
+Additionally, the analysis did not incorporate trajectory inference or cell to cell communication analysis. This could provide further insight into temporal dynamics and interactions between cell populations during infection. Future work could extend this analysis by examining additional clusters, comparing tissue types, or integrating complementary approaches to better characterize the progression of the immune response.
+
+Overall, this study demonstrates how scRNA-seq analysis can be used to identify cell populations and investigate time-dependent transcriptional changes in response to infection. The observed increase in translation-related processes in macrophages at later stages highlights a potential shift in cellular activity, providing a starting point for further investigation into the role of these cells during IAV infection.
+
+
+
+
+
+
