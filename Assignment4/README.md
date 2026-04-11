@@ -47,7 +47,55 @@ To examine the biological functions associated with transcriptional changes in m
 
 
 
+## **Results**
 
+Figure-1
+
+![Model](../Assignment4/scRNA.png)
+
+Figure-1 shows violin plots for the distribution of quality control metrics across all cells. The plot includes the number of detected genes (nFeature_RNA), total RNA counts (nCount_RNA), and percentage of mitochondrial gene expression (percent.mt). These metrics were used to filter low-quality cells prior to downstream analysis.
+
+The QC metrics show a wide distribution of gene counts and sequencing depth across cells. Most cells fall within a moderate range of gene detection and RNA counts, but a small subset displays higher values. Mitochondrial gene expression is generally low across cells. 
+
+
+
+Figure-2
+
+![Model](../Assignment4/UMAP_CELL_TYPE.png)
+
+
+Figure-2 shows the UMAP projection of all cells colored by annotated cell types. Clusters were identified using graph-based clustering and annotated based on known marker gene expression.
+
+The UMAP embedding reveals clear separation of major cell populations, including epithelial cells, immune cells, and neuronal cell types. Distinct clusters corresponding to macrophages, neutrophils, NK cells, and B cells are observed, along with epithelial and olfactory neuron populations. The separation suggests that clustering successfully captured biologically meaningful differences in transcriptional profiles.
+
+
+
+FIgure-3
+
+![Model](../Assignment4/UMAP_TIME.png)
+
+Figure-3 is the UMAP projection colored by time point (Naive, D02, D05, D08, D14), showing the distribution of cells across different stages following infection.
+
+Cells from different time points are broadly distributed across the same clusters. Cell identity is the primary driver of clustering. However, subtle shifts in density within certain clusters suggest temporal changes in cell abundance or transcriptional states, further comparison should be applied between early and late time points.
+
+
+
+Figure-4
+
+![Model](../Assignment4/expression.png)
+
+Figure-4 shows the expression levels of selected marker genes (Cnga2, Omp, Ptprc, and Epcam) across clusters, used for manual cell type annotation.
+
+Marker gene expression patterns are consistent with expected cell type identities. Neuronal markers such as Cnga2 and Omp are enriched in clusters corresponding to olfactory neurons. Epcam is broadly expressed in epithelial populations. The immune marker Ptprc is highly expressed in immune cell clusters, supporting the annotation of macrophages, lymphocytes, and other immune cell types.
+
+
+Figure-5
+
+![Model](../Assignment4/GO.png)
+
+Dot plot showing Gene Ontology (GO) Biological Process enrichment for genes upregulated in macrophages at D14 compared to D02. Dot size represents gene count, and color indicates adjusted p-value.
+
+Enrichment analysis highlights processes related to translation and ribosome biogenesis, including cytoplasmic translation and rRNA processing. These results suggest increased protein synthesis activity in macrophages at the later stage of infection. The results also reflect enhanced cellular activation or functional response.
 
 
 
