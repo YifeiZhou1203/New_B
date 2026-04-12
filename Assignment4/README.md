@@ -95,13 +95,27 @@ Marker gene expression patterns are consistent with expected cell type identitie
 
 Figure-5
 
-![Model](../Assignment4/GO.png)
+![Model](../Assignment4/ORA_GO.png)
 
 Dot plot showing Gene Ontology (GO) Biological Process enrichment for genes upregulated in macrophages at D14 compared to D02. Dot size represents gene count, and color indicates adjusted p-value.
 
 Enrichment analysis highlights processes related to translation and ribosome biogenesis, including cytoplasmic translation and rRNA processing. These results suggest increased protein synthesis activity in macrophages at the later stage of infection. The results also reflect enhanced cellular activation or functional response.
 
 
+Figure-6
+![Model](../Assignment4/celltype_composition.png)
+
+Figure-6 shows the proportion of each annotated cell type across different time points (Naive, D02, D05, D08, D14).
+
+The relative abundance of cell types varies across time points. Immune cell populations such as macrophages, neutrophils, and NK cells show moderate changes in proportion at later stages (D08–D14) compared to earlier time points. In contrast, epithelial and neuronal populations remain stable across conditions. 
+
+
+Figure-7
+![Model](../Assignment4/Volcano.png)
+
+Volcano plot shows differentially expressed genes between D14 and D02 macrophages. Genes with positive log2 fold change are upregulated at D14, while negative values are upregulated at D02.
+
+Several genes upregulated at D14 are ribosomal proteins (Rps21, Rps28, Rpl37a dominating), indicating increased expression of translation-related genes. In contrast, fewer genes are upregulated at D02, suggesting a stonger transcriptional shift at the later stage. 
 
 
 ## **Discussion**
