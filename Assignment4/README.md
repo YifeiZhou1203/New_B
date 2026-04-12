@@ -15,7 +15,7 @@ In this study, scRNA-seq data from mouse nasal tissues following IAV infection w
 
 
 
-## *Mathod
+## *Method
 
 **Data source and preprocessing** 
 
@@ -23,32 +23,31 @@ A pre-processed Seurat object containing single-cell RNA sequencing (scRNA-seq) 
 
 **Quality control and cell filtering**
 
-Quality control was performed using three metrics: the number of detected genes per cell (nFeature_RNA), the total number of RNA counts per cell (nCount_RNA), and the proportion of mitochondrial transcripts (percent.mt). Mitochondrial percentage was calculated from genes matching the pattern "^mt-". Cells were retained only if they met all of the following criteria: more than 500 but fewer than 4000 detected genes, fewer than 10,000 total RNA counts, and less than 10% mitochondrial expression. Cells outside these thresholds were removed prior to downstream analysis.
+Quality control was performed using three metrics: the number of detected genes per cell (nFeature_RNA), the total number of RNA counts per cell (nCount_RNA), and the proportion of mitochondrial transcripts (percent.mt), which are commonly used indicators of cell quality in scRNA-seq data (Luecken & Theis, 2019). Mitochondrial percentage was calculated from genes matching the pattern "^mt-". Cells were retained only if they met all of the following criteria: more than 500 but fewer than 4000 detected genes, fewer than 10,000 total RNA counts, and less than 10% mitochondrial expression. Cells outside these thresholds were removed prior to downstream analysis.
 
 Before filtering, several large internal slots in the Seurat object were cleared and garbage collection was run to reduce memory usage during processing. This step was used only for computational efficiency and did not change the analytical workflow.
 
 **Normalization, feature selection, and dimensionality reduction**
 
-The RNA assay was used for downstream analysis. Expression data were normalized using Seurat’s NormalizeData function with default settings. Highly variable genes were then identified using the variance-stabilizing transformation (selection.method = "vst"), with the top 2000 variable features retained for downstream analysis. The data were scaled, and principal component analysis (PCA) was performed using 30 principal components. An elbow plot was generated to visualize the variance structure, and the first 15 principal components were used for neighbor finding, clustering, and UMAP visualization.
+Expression data were normalized using Seurat’s NormalizeData function with default settings (Butler et al., 2018). Highly variable genes were then identified using the variance-stabilizing transformation method, with the top 2000 features retained for downstream analysis. The data were scaled, and principal component analysis (PCA) was performed using 30 principal components. An elbow plot was used to guide dimensionality selection, and the first 15 principal components were used for neighbor finding, clustering, and visualization.
 
 **Clustering and visualization**
 
-Cells were clustered using Seurat’s graph-based clustering workflow. A shared nearest-neighbor graph was constructed using the first 15 principal components, and clusters were identified at a resolution of 0.5. Uniform Manifold Approximation and Projection (UMAP) was then performed using the same 15 principal components to visualize the data in two dimensions. UMAP plots were generated to show cluster structure overall, as well as sample grouping by time point and tissue type.
+Cells were clustered using Seurat’s graph-based clustering workflow, which constructs a shared nearest-neighbor graph and identifies clusters based on community detection algorithms (Stuart et al., 2019). Clustering was performed at a resolution of 0.5 using the first 15 principal components. Uniform Manifold Approximation and Projection (UMAP) was then applied to visualize the data in two dimensions (McInnes et al., 2018). UMAP plots were generated to show cluster structure as well as grouping by time point and tissue type.
 
 **Marker identification and manual annotation**
 
-To identify cluster-specific marker genes, cluster identities were first set using the Seurat cluster assignments. Because marker testing on the full dataset was more computationally demanding, cells were randomly downsampled so that each cluster contributed at most 100 cells to the marker analysis. Marker genes were identified using FindAllMarkers with the Wilcoxon rank-sum test, restricting results to positive markers with min.pct = 0.25 and logfc.threshold = 0.25. Marker tables were exported, and the top markers for each cluster were selected based on average log2 fold change.
+Cluster-specific marker genes were identified using Seurat’s FindAllMarkers function with the Wilcoxon rank-sum test (Butler et al., 2018). To reduce computational cost, cells were randomly downsampled so that each cluster contributed at most 100 cells to the analysis. Marker genes were filtered using min.pct = 0.25 and logfc.threshold = 0.25, and top markers were selected based on average log2 fold change.
 
-Manual annotation was then performed by examining known marker genes across clusters. Feature plots were generated for selected neuronal, epithelial, immune, stromal, and endothelial markers, including genes such as Cnga2, Omp, Epcam, Ptprc, Nkg7, Lyz2, Col1a1, and Pecam1. Based on these marker patterns, clusters were assigned to cell type labels such as olfactory neurons, macrophages, basal epithelial cells, B cells, dendritic cells, endothelial cells, NK cells, and neutrophils. The annotated cell types were visualized on the UMAP embedding.
+Manual annotation was performed by examining known marker genes across clusters. Feature plots were generated for selected genes representing neuronal, epithelial, immune, stromal, and endothelial cell types. Based on these marker patterns, clusters were assigned to biologically relevant cell types, following established marker-based annotation strategies in scRNA-seq studies (Luecken & Theis, 2019).
 
 **Differential expression analysis**
 
-Differential expression analysis was performed for cluster 2, which was annotated as macrophages in the manual cell type assignment. Cells from this cluster were subsetted, and only cells from the D02 and D14 time points were retained for comparison. To reduce computational load and keep the comparison manageable, each time point was randomly downsampled to a maximum of 200 cells before testing. Differential expression between D14 and D02 macrophages was carried out using Seurat’s FindMarkers function with the Wilcoxon rank-sum test, using min.pct = 0.1 and logfc.threshold = 0.25. The resulting genes were ordered by adjusted p-value and exported for downstream interpretation.
+Differential expression analysis was performed for macrophages (cluster 2). Cells from D02 and D14 time points were compared using Seurat’s FindMarkers function with the Wilcoxon rank-sum test (Butler et al., 2018). To reduce computational load, each group was downsampled to a maximum of 200 cells. Genes were filtered using min.pct = 0.1 and logfc.threshold = 0.25, and results were ranked by adjusted p-value.
 
 **Functional enrichment analysis**
 
-To examine the biological functions associated with transcriptional changes in macrophages, over-representation analysis (ORA) was performed on genes upregulated in D14 relative to D02. Significant genes were selected from the differential expression results using an adjusted p-value cutoff of 0.1 and an absolute log2 fold change threshold of 0.25. Genes with positive fold change were submitted to Gene Ontology enrichment analysis using the enrichGO function from the clusterProfiler package, with mouse annotation from org.Mm.eg.db, gene symbols as the input key type, Biological Process as the ontology, and Benjamini-Hochberg adjustment for multiple testing. Enrichment results were exported and visualized with a dot plot.
-
+Functional enrichment analysis was performed using over-representation analysis (ORA) on genes upregulated at D14. Gene Ontology (GO) enrichment was conducted using the clusterProfiler package (Yu et al., 2012), with mouse annotation from org.Mm.eg.db. Biological Process terms were analyzed, and multiple testing correction was performed using the Benjamini–Hochberg method.
 
 
 ## **Results**
@@ -135,6 +134,27 @@ Future work could extend this analysis by examining additional clusters, compari
 Overall, this study demonstrates how scRNA-seq can be used to resolve cell type–specific responses to viral infection. The observed increase in translational related processes in macrophages at later stages indicates functional changes, although further analysis is needed to determine the biological significance of this pattern.
 
 
+## **Reference**
+Butler, A., Hoffman, P., Smibert, P., Papalexi, E., & Satija, R. (2018).
+Integrating single-cell transcriptomic data across different conditions, technologies, and species. Nature Biotechnology, 36(5), 411–420. https://doi.org/10.1038/nbt.4096
+
+Iwasaki, A., & Pillai, P. S. (2014).
+Innate immunity to influenza virus infection. Nature Reviews Immunology, 14(5), 315–328. https://doi.org/10.1038/nri3665
+
+Krammer, F., Smith, G. J. D., Fouchier, R. A. M., et al. (2018).
+Influenza. Nature Reviews Disease Primers, 4, 3. https://doi.org/10.1038/s41572-018-0002-y
+
+Luecken, M. D., & Theis, F. J. (2019).
+Current best practices in single-cell RNA-seq analysis: A tutorial. Molecular Systems Biology, 15(6), e8746. https://doi.org/10.15252/msb.20188746
+
+McInnes, L., Healy, J., & Melville, J. (2018).
+UMAP: Uniform Manifold Approximation and Projection for dimension reduction. arXiv preprint arXiv:1802.03426. https://doi.org/10.48550/arXiv.1802.03426
+
+Stuart, T., Butler, A., et al. (2019).
+Comprehensive integration of single-cell data. Cell, 177(7), 1888–1902. https://doi.org/10.1016/j.cell.2019.05.031
+
+Yu, G., Wang, L. G., Han, Y., & He, Q. Y. (2012).
+clusterProfiler: An R package for comparing biological themes among gene clusters. OMICS: A Journal of Integrative Biology, 16(5), 284–287. https://doi.org/10.1089/omi.2011.0118
 
 
 
