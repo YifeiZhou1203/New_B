@@ -100,7 +100,9 @@ Figure-4
 ![Model](../Assignment4/vln_ms4a1.png)
 ![Model](../Assignment4/pecam.png)
 
-Violin plots showing expression of selected marker genes across clusters. Expression levels of Ms4a1 (B cell marker), Nkg7 and Cd3d (lymphoid), Pecam1 (endothelial), and Lyz2 (myeloid marker) are displayed across clusters. Each violin represents the distribution of normalized gene expression within a cluster, points for individual cells. Enrichment of marker genes in specific clusters. 
+Violin plots showing expression of selected marker genes across clusters. Expression levels of Ms4a1 (B cell marker), Nkg7 and Cd3d (lymphoid), Pecam1 (endothelial), and Lyz2 (myeloid marker) are displayed across clusters. Each violin represents the distribution of normalized gene expression within a cluster, points for individual cells. 
+
+Ms4a1 is highly enriched in a single cluster, supporting annotation as B cells. Cd3d and Nkg7 show expression in lymphoid clusters, as with T and NK cell populations. Pecam1 is specifically expressed in endothelial clusters, while Lyz2 is expressed in myeloid populations. These quantitative expression patterns validated the annotation and showed that clusters correspond to expected cell type identities. 
 
 
 
@@ -118,7 +120,7 @@ Figure-6
 
 Figure-6 shows the proportion of each annotated cell type across different time points (Naive, D02, D05, D08, D14).
 
-The relative abundance of cell types varies across time points. Immune cell populations such as macrophages, neutrophils, and NK cells show moderate changes in proportion at later stages (D08–D14) compared to earlier time points. In contrast, epithelial and neuronal populations remain stable across conditions. 
+The relative abundance of cell types varies across time points. Immune cell populations such as macrophages, neutrophils, and NK cells show moderate changes in proportion at later stages (D08–D14) compared to earlier time points. In contrast, epithelial and neuronal populations remain relatively stable, indicating that infection primarily affects immune cell dynamics rather than altering structural cell populations.
 
 
 Figure-7
@@ -127,6 +129,8 @@ Figure-7
 Volcano plot shows differentially expressed genes between D14 and D02 macrophages. Genes with positive log2 fold change are upregulated at D14, while negative values are upregulated at D02.
 
 Several genes upregulated at D14 are ribosomal proteins (Rps21, Rps28, Rpl37a dominating), indicating increased expression of translation-related genes. In contrast, fewer genes are upregulated at D02, suggesting a stonger transcriptional shift at the later stage. 
+
+This is consistent with the enrichment of translational processes observed in Figure 5. The results support that macrophages undergo increased translational activity during later stages of infection.
 
 
 ## **Discussion**
