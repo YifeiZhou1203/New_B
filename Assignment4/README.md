@@ -128,7 +128,7 @@ Figure-7
 
 Volcano plot shows differentially expressed genes between D14 and D02 macrophages. Genes with positive log2 fold change are upregulated at D14, while negative values are upregulated at D02.
 
-Several genes upregulated at D14 are ribosomal proteins (Rps21, Rps28, Rpl37a dominating), indicating increased expression of translation-related genes. In contrast, fewer genes are upregulated at D02, suggesting a stonger transcriptional shift at the later stage. 
+Several genes upregulated at D14 are ribosomal proteins (Rps21, Rps28, Rpl37a dominating), indicating increased expression of translational genes. In contrast, fewer genes are upregulated at D02, suggesting a stonger transcriptional shift at the later stage. 
 
 This is consistent with the enrichment of translational processes observed in Figure 5. The results support that macrophages undergo increased translational activity during later stages of infection.
 
