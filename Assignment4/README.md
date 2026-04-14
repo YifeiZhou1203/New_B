@@ -157,7 +157,21 @@ Yu, G., Wang, L. G., Han, Y., & He, Q. Y. (2012).
 clusterProfiler: An R package for comparing biological themes among gene clusters. OMICS: A Journal of Integrative Biology, 16(5), 284–287. https://doi.org/10.1089/omi.2011.0118
 
 
+##**Additional feature plots***
 
+Figure-8
+![Model](../Assignment4/Volcano.png)
+
+Violin plots showing expression of selected marker genes across clusters. Expression levels of Ms4a1 (B cell marker), Nkg7 and Cd3d (lymphoid), Pecam1 (endothelial), and Lyz2 (myeloid marker) are displayed across clusters. Each violin represents the distribution of normalized gene expression within a cluster, with points indicating individual cells. Distinct enrichment of marker genes in specific clusters. 
+
+
+Figure-9
+![Model](../Assignment4/Volcano.png)
+
+UMAP feature plots showing expression of selected marker genes across cell populations.
+Expression of Omp (olfactory neurons), Krt14 (basal epithelial cells), Csf1r and Lyz2 (macrophage markers), Ms4a1 (B cells), Nkg7 and Cd3d (T cell markers), and Pecam1 (endothelial cells) is visualized on the UMAP embedding. Normalized expression levels for each gene. 
+
+Spatial locations of these markers across clusters supports the annotation of major cell types within the dataset.
 
 
 
