@@ -41,6 +41,16 @@ Cluster-specific marker genes were identified using Seurat’s FindAllMarkers fu
 
 Manual annotation was performed by examining known marker genes across clusters. Feature plots were generated for selected genes representing neuronal, epithelial, immune, stromal, and endothelial cell types. Based on these marker patterns, clusters were assigned to biologically relevant cell types, following established marker-based annotation strategies in scRNA-seq studies (Luecken & Theis, 2019).
 
+
+
+**Violin plots**
+
+Violin plots were applied to visualize the distribution of normalized gene expression across clusters to support annotation. Violin plots provide a quantitative view of expression levels within each cluster, including variability and the proportion of expressing cells. This allows assessment of whether marker genes are specifically enriched in particular clusters, and thus validates cluster identities based on established markers.
+
+In detail, five genes are selected: Ms4a1 marks B cells, Cd3d and Nkg7 mark lymphoid populations (T and NK cells), Pecam1 marks endothelial cells, and Lyz2 marks myeloid cells. Those genes are canonical, non-overlapping markers to identify a major cell lineage correspond to known cell types. This is also to avoid overlappingly expressed genes. 
+
+
+
 **Differential expression analysis**
 
 Differential expression analysis was performed for macrophages (cluster 2). Cells from D02 and D14 time points were compared using Seurat’s FindMarkers function with the Wilcoxon rank-sum test (Butler et al., 2018). To reduce computational load, each group was downsampled to a maximum of 200 cells. Genes were filtered using min.pct = 0.1 and logfc.threshold = 0.25, and results were ranked by adjusted p-value.
@@ -85,11 +95,13 @@ Cells from different time points are broadly distributed across the same cluster
 
 Figure-4
 
-![Model](../Assignment4/expression.png)
+![Model](../Assignment4/vln_2.png)
+![Model](../Assignment4/vln_2_2.png)
+![Model](../Assignment4/vln_ms4a1.png)
+![Model](../Assignment4/pecam.png)
 
-Figure-4 shows the expression levels of selected marker genes (Cnga2, Omp, Ptprc, and Epcam) across clusters, used for manual cell type annotation.
+Violin plots showing expression of selected marker genes across clusters. Expression levels of Ms4a1 (B cell marker), Nkg7 and Cd3d (lymphoid), Pecam1 (endothelial), and Lyz2 (myeloid marker) are displayed across clusters. Each violin represents the distribution of normalized gene expression within a cluster, points for individual cells. Enrichment of marker genes in specific clusters. 
 
-Marker gene expression patterns are consistent with expected cell type identities. Neuronal markers such as Cnga2 and Omp are enriched in clusters corresponding to olfactory neurons. Epcam is broadly expressed in epithelial populations. The immune marker Ptprc is highly expressed in immune cell clusters, supporting the annotation of macrophages, lymphocytes, and other immune cell types.
 
 
 Figure-5
@@ -158,25 +170,15 @@ clusterProfiler: An R package for comparing biological themes among gene cluster
 
 
 ##**Additional feature plots***
+
 Figure captions on X axis have been rotated 45-90 angle to show:
 
 
 Figure-8
-![Model](../Assignment4/vln_2.png)
-![Model](../Assignment4/vln_2_2.png)
-![Model](../Assignment4/vln_ms4a1.png)
-![Model](../Assignment4/pecam.png)
-
-Violin plots showing expression of selected marker genes across clusters. Expression levels of Ms4a1 (B cell marker), Nkg7 and Cd3d (lymphoid), Pecam1 (endothelial), and Lyz2 (myeloid marker) are displayed across clusters. Each violin represents the distribution of normalized gene expression within a cluster, with points indicating individual cells. Distinct enrichment of marker genes in specific clusters. 
-
-
-Figure-9
 ![Model](../Assignment4/feature.png)
 
 UMAP feature plots showing expression of selected marker genes across cell populations.
 Expression of Omp (olfactory neurons), Krt14 (basal epithelial cells), Csf1r and Lyz2 (macrophage markers), Ms4a1 (B cells), Nkg7 and Cd3d (T cell markers), and Pecam1 (endothelial cells) is visualized on the UMAP embedding. Normalized expression levels for each gene. 
-
-Spatial locations of these markers across clusters supports the annotation of major cell types within the dataset.
 
 
 
