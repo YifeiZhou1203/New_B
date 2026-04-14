@@ -319,3 +319,31 @@ ggplot(volcano_df, aes(x = avg_log2FC, y = neg_log10_padj, color = change)) +
     color = "Group"
   ) +
   theme_minimal()
+
+
+
+
+###Additional feature plots#####
+seurat_obj <- readRDS("seurat_obj_processed.rds")
+Reductions(seurat_obj)
+
+
+FeaturePlot(seurat_obj, features = c(
+  "Omp",     # neuron
+  "Krt14",   
+  "Csf1r",   # macrophage
+  "Ms4a1",   # B cell
+  "Nkg7",    # NK cell
+  "Cd3d",    # T-cell 
+  "Pecam1",  # endothelial cells?
+  "Lyz2"     
+), ncol = 4)
+
+
+VlnPlot(
+  seurat_obj,
+  features = c("Ms4a1","Nkg7","Cd3d","Pecam1","Lyz2"),
+  group.by = "seurat_clusters",
+  pt.size = 0
+) + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
