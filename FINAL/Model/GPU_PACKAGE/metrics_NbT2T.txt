@@ -1,0 +1,28 @@
+=== FINAL RESULTS ===
+GC-controlled Transformer Total Loss: 1.0857
+GC-controlled Transformer CE Loss: 1.0784
+GC-controlled Transformer GC Loss: 0.0006
+GC-controlled Transformer Expected GC: 0.4254
+GC-controlled Transformer Expected tAI: 0.6040
+GC-controlled Transformer Expected MFE Proxy: 0.4702
+Target GC: 0.4300
+Transformer Accuracy: 0.4348
+Baseline Accuracy: 0.4759
+Codon Cosine: 0.7158
+GC Difference: 0.0046
+CAI Difference: 0.1240
+tAI-like Difference: 0.0798
+MFE Proxy Difference: 0.0018
+Amino Acid Fidelity: 1.0000
+USE_TRNASCAN_TAI: True
+TRNA_SCAN_FILE: nbenthamiana_NbT2T_trna.out
+USE_POST_MFE_SELECTION: False
+POST_TOP_K: 4
+POST_NUM_CANDIDATES: 12
+LAMBDA_MFE: 0.1
+RUN_EXACT_RNAFOLD_ON_TEST_SET: False
+FORBIDDEN_RESTRICTION_SITES: {'BamHI': 'GGATCC', 'BglII': 'AGATCT', 'KasI': 'GGCGCC', 'SacI': 'GAGCTC'}
+POLYA_SIGNALS: {'canonical_polyA': 'AATAAA', 'variant_polyA': 'ATTAAA'}
+GENERATE_RNAFOLD_CANDIDATES: True
+RNAFOLD_CANDIDATE_FASTA: final_candidates_for_rnafold_NbT2T.fasta
+RNAFOLD_CANDIDATE_TSV: final_candidates_for_rnafold_summary_NbT2T.tsv
